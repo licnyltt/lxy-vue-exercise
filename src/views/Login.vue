@@ -54,9 +54,9 @@ export default {
             url: "http://localhost:8888/api/private/v1/login",
             method: "post",
             data: this.form
-          }).then(res => {
-            if (res.data.meta.status === 200) {
-              console.log(res.data.meta.msg);
+          }).then(({ data: { data, meta } }) => {
+            if (meta.status === 200) {
+              this.$router.push("/home");
             }
           });
         } else {
